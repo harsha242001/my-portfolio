@@ -107,8 +107,9 @@
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
-    transition: all 0.1s ease;
+    transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
     mix-blend-mode: difference;
+    will-change: transform;
   }
 
   .custom-cursor.hover {
@@ -143,6 +144,7 @@
     pointer-events: none;
     z-index: 9998;
     transform: translate(-50%, -50%);
+    will-change: transform;
   }
 }
 
