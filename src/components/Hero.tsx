@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Download, Eye } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -23,41 +22,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-black">
-      {/* Enhanced Background Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
-      
-      {/* Floating Orbs */}
-      <div className="absolute inset-0">
-        {[...Array(12)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full blur-sm animate-float opacity-20"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              width: `${Math.random() * 8 + 4}px`,
-              height: `${Math.random() * 8 + 4}px`,
-              background: `linear-gradient(45deg, ${
-                i % 3 === 0 ? '#3b82f6' : i % 3 === 1 ? '#8b5cf6' : '#06b6d4'
-              }, transparent)`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${4 + Math.random() * 6}s`
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Interactive Mouse Glow */}
-      <div 
-        className="absolute w-[800px] h-[800px] rounded-full opacity-5 transition-all duration-700 ease-out pointer-events-none"
-        style={{
-          left: mousePosition.x - 400,
-          top: mousePosition.y - 400,
-          background: 'radial-gradient(circle, #3b82f6 0%, #8b5cf6 50%, transparent 70%)',
-        }}
-      />
-      
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -171,14 +136,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
-      {/* Enhanced Background Elements */}
-      <div className="absolute top-20 right-20 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-morph" />
-      <div className="absolute bottom-20 left-20 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-3xl animate-morph-reverse" />
-      
-      {/* Geometric Accents */}
-      <div className="absolute top-1/4 left-10 w-6 h-6 border border-blue-400/30 rotate-45 animate-spin-slow" />
-      <div className="absolute bottom-1/4 right-10 w-4 h-4 bg-purple-400/30 rounded-full animate-pulse" />
     </section>
   );
 };

@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,7 +6,6 @@ import { ExternalLink, Github, Eye, Filter, Sparkles } from "lucide-react";
 const Portfolio = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   const categories = ["All", "Web Automation", "API Testing", "Framework Design", "Data Extraction"];
@@ -104,15 +102,6 @@ const Portfolio = () => {
   };
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  useEffect(() => {
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -145,73 +134,7 @@ const Portfolio = () => {
   }, [selectedCategory]);
 
   return (
-    <section id="portfolio" className="py-32 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
-      {/* Enhanced Background Pattern */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:5rem_5rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_110%)] opacity-10" />
-        
-        {/* Large Floating Orbs */}
-        {[...Array(12)].map((_, i) => (
-          <div
-            key={`orb-${i}`}
-            className="absolute rounded-full animate-float opacity-20 blur-sm"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              width: `${Math.random() * 80 + 40}px`,
-              height: `${Math.random() * 80 + 40}px`,
-              background: `radial-gradient(circle, ${
-                i % 4 === 0 ? '#3b82f6' : 
-                i % 4 === 1 ? '#8b5cf6' : 
-                i % 4 === 2 ? '#06b6d4' : '#10b981'
-              }40, transparent 70%)`,
-              animationDelay: `${Math.random() * 8}s`,
-              animationDuration: `${6 + Math.random() * 6}s`
-            }}
-          />
-        ))}
-
-        {/* Small Particle Elements */}
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={`particle-${i}`}
-            className="absolute rounded-full animate-float opacity-30"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              width: `${Math.random() * 6 + 2}px`,
-              height: `${Math.random() * 6 + 2}px`,
-              background: `linear-gradient(45deg, ${
-                i % 3 === 0 ? '#3b82f6' : i % 3 === 1 ? '#8b5cf6' : '#06b6d4'
-              }, transparent)`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${4 + Math.random() * 6}s`
-            }}
-          />
-        ))}
-
-        {/* Moving Background Shapes */}
-        <div className="absolute top-20 left-20 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-morph" />
-        <div className="absolute bottom-20 right-20 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-3xl animate-morph-reverse" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-cyan-500/3 rounded-full blur-3xl animate-floating" />
-        
-        {/* Geometric Moving Elements */}
-        <div className="absolute top-1/4 left-10 w-8 h-8 border border-blue-400/20 rotate-45 animate-spin-slow" />
-        <div className="absolute bottom-1/4 right-10 w-6 h-6 bg-purple-400/20 rounded-full animate-pulse" />
-        <div className="absolute top-3/4 left-1/4 w-4 h-4 border border-cyan-400/30 animate-bounce" />
-        <div className="absolute top-1/3 right-1/3 w-10 h-10 border border-emerald-400/20 rounded-full animate-spin-slow" />
-      </div>
-
-      {/* Interactive Mouse Glow */}
-      <div 
-        className="absolute w-[600px] h-[600px] rounded-full opacity-5 transition-all duration-700 ease-out pointer-events-none"
-        style={{
-          left: mousePosition.x - 300,
-          top: mousePosition.y - 300,
-          background: 'radial-gradient(circle, #3b82f6 0%, #8b5cf6 50%, transparent 70%)',
-        }}
-      />
-
+    <section id="portfolio" className="py-32 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           
