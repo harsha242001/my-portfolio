@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Download, Eye } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const Hero = () => {
@@ -23,94 +23,162 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Animated Background Grid */}
-      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px] animate-pulse" />
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-black">
+      {/* Enhanced Background Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
       
-      {/* Floating Particles */}
+      {/* Floating Orbs */}
       <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(12)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-2 h-2 bg-blue-400/20 rounded-full animate-float"
+            className="absolute rounded-full blur-sm animate-float opacity-20"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${3 + Math.random() * 4}s`
+              width: `${Math.random() * 8 + 4}px`,
+              height: `${Math.random() * 8 + 4}px`,
+              background: `linear-gradient(45deg, ${
+                i % 3 === 0 ? '#3b82f6' : i % 3 === 1 ? '#8b5cf6' : '#06b6d4'
+              }, transparent)`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${4 + Math.random() * 6}s`
             }}
           />
         ))}
       </div>
 
-      {/* Mouse Follower Elements */}
+      {/* Interactive Mouse Glow */}
       <div 
-        className="absolute w-96 h-96 bg-blue-500/10 rounded-full blur-3xl transition-all duration-1000 ease-out"
+        className="absolute w-[800px] h-[800px] rounded-full opacity-5 transition-all duration-700 ease-out pointer-events-none"
         style={{
-          left: mousePosition.x - 192,
-          top: mousePosition.y - 192,
+          left: mousePosition.x - 400,
+          top: mousePosition.y - 400,
+          background: 'radial-gradient(circle, #3b82f6 0%, #8b5cf6 50%, transparent 70%)',
         }}
       />
       
-      <div className="container mx-auto px-6 text-center relative z-10">
-        <div className="animate-hero-entrance">
-          {/* Animated Title with Typewriter Effect */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent animate-gradient-x">
-            <span className="inline-block animate-bounce-in-down">Automation</span>{" "}
-            <span className="inline-block animate-bounce-in-down animation-delay-200">Test</span>{" "}
-            <span className="inline-block animate-bounce-in-down animation-delay-400">Engineer</span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto animate-slide-up animation-delay-600">
-            I design robust test automation frameworks that ensure software quality and accelerate development cycles. 
-            Specializing in Java, Selenium, and end-to-end testing solutions.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-slide-up animation-delay-800">
-            <Button 
-              size="lg"
-              onClick={() => scrollToSection('portfolio')}
-              className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-4 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/25"
-            >
-              View Portfolio
-            </Button>
-            <Button 
-              size="lg"
-              variant="outline"
-              className="border-slate-600 text-slate-300 hover:bg-slate-800 text-lg px-8 py-4 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/25"
-            >
-              Download Resume
-            </Button>
-          </div>
-
-          <div className="flex justify-center items-center space-x-12 text-slate-400 animate-slide-up animation-delay-1000">
-            {[
-              { number: "5+", label: "Years Experience" },
-              { number: "50+", label: "Projects Completed" },
-              { number: "10+", label: "Companies Served" }
-            ].map((stat, index) => (
-              <div key={index} className="text-center group">
-                <div className="text-2xl font-bold text-blue-400 group-hover:scale-110 transition-transform duration-300 animate-counter">
-                  {stat.number}
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            
+            {/* Left Side - Text Content */}
+            <div className="space-y-8 animate-hero-entrance">
+              <div className="space-y-6">
+                <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 backdrop-blur-sm animate-bounce-in">
+                  <div className="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></div>
+                  <span className="text-sm text-blue-300">Available for new opportunities</span>
                 </div>
-                <div className="text-sm">{stat.label}</div>
+
+                <h1 className="text-6xl lg:text-7xl font-bold tracking-tight">
+                  <span className="block text-white animate-bounce-in-down">Alex</span>
+                  <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-bounce-in-down animation-delay-200">
+                    Chen
+                  </span>
+                </h1>
+
+                <div className="space-y-4 animate-slide-up animation-delay-400">
+                  <p className="text-2xl font-medium text-blue-300">
+                    Senior Test Automation Engineer
+                  </p>
+                  <p className="text-lg text-slate-300 leading-relaxed max-w-xl">
+                    Crafting robust automation frameworks that ensure flawless software delivery.
+                    <br />
+                    Transforming quality assurance through innovative testing solutions and CI/CD excellence.
+                  </p>
+                </div>
               </div>
-            ))}
+
+              <div className="flex flex-wrap gap-4 animate-slide-up animation-delay-600">
+                <Button 
+                  size="lg"
+                  onClick={() => scrollToSection('portfolio')}
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 shadow-2xl shadow-blue-500/25 group"
+                >
+                  <Eye className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
+                  View Portfolio
+                </Button>
+                <Button 
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-slate-600 text-slate-300 hover:bg-white hover:text-black px-8 py-4 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-white/25 group backdrop-blur-sm bg-slate-800/50"
+                >
+                  <Download className="w-5 h-5 mr-2 group-hover:translate-y-1 transition-transform" />
+                  Resume
+                </Button>
+              </div>
+
+              <div className="grid grid-cols-3 gap-8 pt-8 animate-slide-up animation-delay-800">
+                {[
+                  { number: "5+", label: "Years Experience", color: "text-blue-400" },
+                  { number: "50+", label: "Projects Completed", color: "text-purple-400" },
+                  { number: "10+", label: "Companies Served", color: "text-cyan-400" }
+                ].map((stat, index) => (
+                  <div key={index} className="text-center group cursor-pointer">
+                    <div className={`text-3xl font-bold ${stat.color} group-hover:scale-110 transition-all duration-300 animate-counter`}>
+                      {stat.number}
+                    </div>
+                    <div className="text-sm text-slate-400 mt-1 group-hover:text-slate-300 transition-colors">
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Side - Photo */}
+            <div className="flex justify-center lg:justify-end animate-slide-left animation-delay-600">
+              <div className="relative group">
+                {/* Glow Effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 rounded-3xl blur opacity-25 group-hover:opacity-40 transition-opacity duration-500 animate-pulse"></div>
+                
+                {/* Photo Container */}
+                <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 p-2 rounded-3xl border border-slate-700 group-hover:border-slate-600 transition-all duration-500">
+                  <div className="relative overflow-hidden rounded-2xl">
+                    <img 
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop&crop=face"
+                      alt="Alex Chen - Test Automation Engineer"
+                      className="w-80 h-96 object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    />
+                    
+                    {/* Overlay Gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+                    
+                    {/* Floating Tech Icons */}
+                    <div className="absolute top-4 right-4 flex flex-col space-y-2">
+                      {['Java', 'Selenium', 'CI/CD'].map((tech, i) => (
+                        <div 
+                          key={tech}
+                          className="px-3 py-1 bg-black/40 backdrop-blur-sm rounded-full text-xs text-white font-medium animate-bounce-in"
+                          style={{ animationDelay: `${1000 + i * 200}ms` }}
+                        >
+                          {tech}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
+        {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-floating">
-          <ArrowDown className="w-6 h-6 text-slate-400" />
+          <div className="flex flex-col items-center space-y-2">
+            <span className="text-xs text-slate-400 uppercase tracking-wider">Scroll</span>
+            <ArrowDown className="w-5 h-5 text-slate-400" />
+          </div>
         </div>
       </div>
 
-      {/* Morphing Background Shapes */}
-      <div className="absolute top-20 right-20 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl animate-morph" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-morph-reverse" />
+      {/* Enhanced Background Elements */}
+      <div className="absolute top-20 right-20 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-morph" />
+      <div className="absolute bottom-20 left-20 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-3xl animate-morph-reverse" />
       
-      {/* Geometric Shapes */}
-      <div className="absolute top-1/4 left-10 w-4 h-4 bg-blue-400/30 rotate-45 animate-spin-slow" />
-      <div className="absolute bottom-1/4 right-10 w-6 h-6 bg-purple-400/30 rounded-full animate-pulse" />
+      {/* Geometric Accents */}
+      <div className="absolute top-1/4 left-10 w-6 h-6 border border-blue-400/30 rotate-45 animate-spin-slow" />
+      <div className="absolute bottom-1/4 right-10 w-4 h-4 bg-purple-400/30 rounded-full animate-pulse" />
     </section>
   );
 };
