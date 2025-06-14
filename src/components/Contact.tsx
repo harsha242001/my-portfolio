@@ -16,6 +16,10 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // --- NOTE ON FORM SUBMISSION ---
+    // This is currently a mock submission. It just shows a "Message Sent!" notification.
+    // To make this functional, you would need to integrate a backend service
+    // like EmailJS, Formspree, or your own server endpoint here.
     toast({
       title: "Message Sent!",
       description: "Thank you for reaching out. I'll get back to you soon.",
@@ -30,6 +34,8 @@ const Contact = () => {
     });
   };
 
+  // --- CUSTOMIZE YOUR CONTACT INFORMATION ---
+  // Update your email, phone, and location here.
   const contactInfo = [
     {
       icon: Mail,
@@ -49,28 +55,30 @@ const Contact = () => {
       icon: MapPin,
       label: "Location",
       value: "San Francisco, CA",
-      href: "#",
+      href: "#", // You can link this to a Google Maps URL if you want
       gradient: "from-emerald-500 to-teal-500"
     }
   ];
 
+  // --- CUSTOMIZE YOUR SOCIAL MEDIA LINKS ---
+  // Update the 'href' with your personal social media profile URLs.
   const socialLinks = [
     {
       icon: Github,
       label: "GitHub",
-      href: "#",
+      href: "#", // Replace with your GitHub URL
       color: "hover:text-slate-300"
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "#",
+      href: "#", // Replace with your LinkedIn URL
       color: "hover:text-blue-400"
     },
     {
       icon: Twitter,
       label: "Twitter",
-      href: "#",
+      href: "#", // Replace with your Twitter/X URL
       color: "hover:text-cyan-400"
     }
   ];

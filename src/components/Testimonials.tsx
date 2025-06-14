@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Quote, Star, ChevronLeft, ChevronRight, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,9 @@ const Testimonials = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
+  // --- CUSTOMIZE YOUR TESTIMONIALS ---
+  // Update this array with quotes from your clients or colleagues.
+  // Replace the image URLs with photos of the people giving the testimonials.
   const testimonials = [
     {
       name: "Sarah Johnson",
@@ -36,6 +40,9 @@ const Testimonials = () => {
     }
   ];
 
+  // --- CUSTOMIZE COMPANIES YOU'VE WORKED WITH ---
+  // Update this list with companies you've been involved with.
+  // You can use emojis for logos.
   const companies = [
     { name: "TechCorp", logo: "🏢" },
     { name: "DataFlow Inc", logo: "📊" },

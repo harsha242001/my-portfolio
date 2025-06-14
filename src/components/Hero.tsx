@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Download, Eye } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -71,6 +72,8 @@ const Hero = () => {
                   <span className="text-sm text-blue-300">Available for new opportunities</span>
                 </div>
 
+                {/* --- CUSTOMIZE YOUR NAME --- */}
+                {/* Change "Alex" and "Chen" to your first and last name. */}
                 <h1 className="text-6xl lg:text-7xl font-bold tracking-tight">
                   <span className="block text-white animate-bounce-in-down">Alex</span>
                   <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-bounce-in-down animation-delay-200">
@@ -79,9 +82,12 @@ const Hero = () => {
                 </h1>
 
                 <div className="space-y-4 animate-slide-up animation-delay-400">
+                  {/* --- CUSTOMIZE YOUR ROLE & BIO --- */}
+                  {/* Update your professional title here. */}
                   <p className="text-2xl font-medium text-blue-300">
                     Senior Test Automation Engineer
                   </p>
+                  {/* Update your short biography or tagline here. */}
                   <p className="text-lg text-slate-300 leading-relaxed max-w-xl">
                     Crafting robust automation frameworks that ensure flawless software delivery.
                     <br />
@@ -109,6 +115,8 @@ const Hero = () => {
                 </Button>
               </div>
 
+              {/* --- CUSTOMIZE YOUR STATS --- */}
+              {/* Update these numbers and labels to reflect your achievements. */}
               <div className="grid grid-cols-3 gap-8 pt-8 animate-slide-up animation-delay-800">
                 {[
                   { number: "5+", label: "Years Experience", color: "text-blue-400" },
@@ -136,6 +144,9 @@ const Hero = () => {
                 {/* Photo Container */}
                 <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 p-2 rounded-3xl border border-slate-700 group-hover:border-slate-600 transition-all duration-500">
                   <div className="relative overflow-hidden rounded-2xl">
+                    {/* --- CUSTOMIZE YOUR PHOTO --- */}
+                    {/* Replace this URL with a link to your own photo.
+                        A good size is 500x600 pixels. You can upload an image to this project. */}
                     <img 
                       src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop&crop=face"
                       alt="Alex Chen - Test Automation Engineer"
@@ -145,7 +156,8 @@ const Hero = () => {
                     {/* Overlay Gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
                     
-                    {/* Floating Tech Icons */}
+                    {/* --- CUSTOMIZE YOUR SKILLS/TECHNOLOGIES --- */}
+                    {/* Change these to highlight your key skills. */}
                     <div className="absolute top-4 right-4 flex flex-col space-y-2">
                       {['Java', 'Selenium', 'CI/CD'].map((tech, i) => (
                         <div 

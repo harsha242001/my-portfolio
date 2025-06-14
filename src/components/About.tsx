@@ -6,6 +6,9 @@ const About = () => {
   const [visibleMilestones, setVisibleMilestones] = useState<number[]>([]);
   const sectionRef = useRef<HTMLElement>(null);
 
+  // --- CUSTOMIZE YOUR CAREER MILESTONES ---
+  // Update this array to reflect your professional journey.
+  // The 'icon' can be changed using any icon from the 'lucide-react' library.
   const milestones = [
     {
       year: "2019",
@@ -33,6 +36,9 @@ const About = () => {
     }
   ];
 
+  // --- CUSTOMIZE YOUR CORE VALUES ---
+  // Update this array to reflect your personal or professional values.
+  // You can use emojis for the 'icon'.
   const values = [
     {
       title: "Quality Excellence",
@@ -120,6 +126,8 @@ const About = () => {
                 My Story
               </span>
             </h2>
+            {/* --- CUSTOMIZE YOUR ABOUT ME SECTION --- */}
+            {/* Update this paragraph with your own professional summary. */}
             <p className="text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
               I'm a passionate test automation engineer with over 5 years of experience crafting 
               robust testing frameworks that empower teams to deliver exceptional software quality. 
