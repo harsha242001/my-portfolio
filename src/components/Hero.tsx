@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Download, Eye } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -74,7 +73,7 @@ const Hero = () => {
 
                 {/* --- CUSTOMIZE YOUR NAME --- */}
                 {/* Change "Alex" and "Chen" to your first and last name. */}
-                <h1 className="text-6xl lg:text-7xl font-bold tracking-tight">
+                <h1 className="text-4xl lg:text-5xl font-bold tracking-tight">
                   <span className="block text-white animate-bounce-in-down">Alex</span>
                   <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-bounce-in-down animation-delay-200">
                     Chen
