@@ -1,59 +1,50 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Download, Eye } from "lucide-react";
 import { useEffect, useState } from "react";
-
 const Hero = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
+  const [mousePosition, setMousePosition] = useState({
+    x: 0,
+    y: 0
+  });
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY
+      });
     };
-
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-
-  return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+  return <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
         {/* Background Grid */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] opacity-10" />
         
         {/* Floating Orbs */}
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={`orb-${i}`}
-            className="absolute rounded-full blur-md animate-float opacity-10"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              width: `${Math.random() * 150 + 50}px`,
-              height: `${Math.random() * 150 + 50}px`,
-              background: `radial-gradient(circle, ${
-                i % 3 === 0 ? '#3b82f6' : i % 3 === 1 ? '#8b5cf6' : '#06b6d4'
-              }20, transparent 70%)`,
-              animationDelay: `${Math.random() * 10}s`,
-              animationDuration: `${10 + Math.random() * 20}s`
-            }}
-          />
-        ))}
+        {[...Array(15)].map((_, i) => <div key={`orb-${i}`} className="absolute rounded-full blur-md animate-float opacity-10" style={{
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        width: `${Math.random() * 150 + 50}px`,
+        height: `${Math.random() * 150 + 50}px`,
+        background: `radial-gradient(circle, ${i % 3 === 0 ? '#3b82f6' : i % 3 === 1 ? '#8b5cf6' : '#06b6d4'}20, transparent 70%)`,
+        animationDelay: `${Math.random() * 10}s`,
+        animationDuration: `${10 + Math.random() * 20}s`
+      }} />)}
 
         {/* Interactive Mouse Glow */}
-        <div 
-          className="absolute w-[800px] h-[800px] rounded-full opacity-5 transition-transform duration-500 ease-out"
-          style={{
-            transform: `translate(${mousePosition.x - 400}px, ${mousePosition.y - 400}px)`,
-            background: 'radial-gradient(circle, #3b82f6 0%, #8b5cf6 50%, transparent 70%)',
-          }}
-        />
+        <div className="absolute w-[800px] h-[800px] rounded-full opacity-5 transition-transform duration-500 ease-out" style={{
+        transform: `translate(${mousePosition.x - 400}px, ${mousePosition.y - 400}px)`,
+        background: 'radial-gradient(circle, #3b82f6 0%, #8b5cf6 50%, transparent 70%)'
+      }} />
         
         {/* Morphing Shapes */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-morph" />
@@ -75,17 +66,13 @@ const Hero = () => {
                 {/* Change "Alex" and "Chen" to your first and last name. */}
                 <h1 className="text-4xl lg:text-5xl font-bold tracking-tight">
                   <span className="block text-white animate-bounce-in-down">Alex</span>
-                  <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-bounce-in-down animation-delay-200">
-                    Chen
-                  </span>
+                  <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-bounce-in-down animation-delay-200">Nunna</span>
                 </h1>
 
                 <div className="space-y-4 animate-slide-up animation-delay-400">
                   {/* --- CUSTOMIZE YOUR ROLE & BIO --- */}
                   {/* Update your professional title here. */}
-                  <p className="text-2xl font-medium text-blue-300">
-                    Senior Test Automation Engineer
-                  </p>
+                  <p className="text-2xl font-medium text-blue-300">Senior Software Engineer</p>
                   {/* Update your short biography or tagline here. */}
                   <p className="text-lg text-slate-300 leading-relaxed max-w-xl">
                     Crafting robust automation frameworks that ensure flawless software delivery.
@@ -96,19 +83,11 @@ const Hero = () => {
               </div>
 
               <div className="flex flex-wrap gap-4 animate-slide-up animation-delay-600">
-                <Button 
-                  size="lg"
-                  onClick={() => scrollToSection('portfolio')}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 shadow-2xl shadow-blue-500/25 group"
-                >
+                <Button size="lg" onClick={() => scrollToSection('portfolio')} className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 shadow-2xl shadow-blue-500/25 group">
                   <Eye className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
                   View Portfolio
                 </Button>
-                <Button 
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-slate-600 text-slate-300 hover:bg-white hover:text-black px-8 py-4 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-white/25 group backdrop-blur-sm bg-slate-800/50"
-                >
+                <Button size="lg" variant="outline" className="border-2 border-slate-600 text-slate-300 hover:bg-white hover:text-black px-8 py-4 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-white/25 group backdrop-blur-sm bg-slate-800/50">
                   <Download className="w-5 h-5 mr-2 group-hover:translate-y-1 transition-transform" />
                   Resume
                 </Button>
@@ -117,20 +96,26 @@ const Hero = () => {
               {/* --- CUSTOMIZE YOUR STATS --- */}
               {/* Update these numbers and labels to reflect your achievements. */}
               <div className="grid grid-cols-3 gap-8 pt-8 animate-slide-up animation-delay-800">
-                {[
-                  { number: "5+", label: "Years Experience", color: "text-blue-400" },
-                  { number: "50+", label: "Projects Completed", color: "text-purple-400" },
-                  { number: "10+", label: "Companies Served", color: "text-cyan-400" }
-                ].map((stat, index) => (
-                  <div key={index} className="text-center group cursor-pointer">
+                {[{
+                number: "5+",
+                label: "Years Experience",
+                color: "text-blue-400"
+              }, {
+                number: "50+",
+                label: "Projects Completed",
+                color: "text-purple-400"
+              }, {
+                number: "10+",
+                label: "Companies Served",
+                color: "text-cyan-400"
+              }].map((stat, index) => <div key={index} className="text-center group cursor-pointer">
                     <div className={`text-3xl font-bold ${stat.color} group-hover:scale-110 transition-all duration-300 animate-counter`}>
                       {stat.number}
                     </div>
                     <div className="text-sm text-slate-400 mt-1 group-hover:text-slate-300 transition-colors">
                       {stat.label}
                     </div>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
 
@@ -146,11 +131,7 @@ const Hero = () => {
                     {/* --- CUSTOMIZE YOUR PHOTO --- */}
                     {/* Replace this URL with a link to your own photo.
                         A good size is 500x600 pixels. You can upload an image to this project. */}
-                    <img 
-                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop&crop=face"
-                      alt="Alex Chen - Test Automation Engineer"
-                      className="w-80 h-96 object-cover transform group-hover:scale-105 transition-transform duration-700"
-                    />
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop&crop=face" alt="Alex Chen - Test Automation Engineer" className="w-80 h-96 object-cover transform group-hover:scale-105 transition-transform duration-700" />
                     
                     {/* Overlay Gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
@@ -158,15 +139,11 @@ const Hero = () => {
                     {/* --- CUSTOMIZE YOUR SKILLS/TECHNOLOGIES --- */}
                     {/* Change these to highlight your key skills. */}
                     <div className="absolute top-4 right-4 flex flex-col space-y-2">
-                      {['Java', 'Selenium', 'CI/CD'].map((tech, i) => (
-                        <div 
-                          key={tech}
-                          className="px-3 py-1 bg-black/40 backdrop-blur-sm rounded-full text-xs text-white font-medium animate-bounce-in"
-                          style={{ animationDelay: `${1000 + i * 200}ms` }}
-                        >
+                      {['Java', 'Selenium', 'CI/CD'].map((tech, i) => <div key={tech} className="px-3 py-1 bg-black/40 backdrop-blur-sm rounded-full text-xs text-white font-medium animate-bounce-in" style={{
+                      animationDelay: `${1000 + i * 200}ms`
+                    }}>
                           {tech}
-                        </div>
-                      ))}
+                        </div>)}
                     </div>
                   </div>
                 </div>
@@ -183,8 +160,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
