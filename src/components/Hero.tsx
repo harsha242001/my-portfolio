@@ -65,7 +65,7 @@ const Hero = () => {
                 {/* --- CUSTOMIZE YOUR NAME --- */}
                 {/* Change "Alex" and "Chen" to your first and last name. */}
                 <h1 className="text-4xl lg:text-5xl font-bold tracking-tight">
-                  <span className="block text-white animate-bounce-in-down">Alex</span>
+                  <span className="block text-white animate-bounce-in-down">Harsha Vardhan</span>
                   <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-bounce-in-down animation-delay-200">Nunna</span>
                 </h1>
 
@@ -109,7 +109,7 @@ const Hero = () => {
                 label: "Companies Served",
                 color: "text-cyan-400"
               }].map((stat, index) => <div key={index} className="text-center group cursor-pointer">
-                    <div className={`text-3xl font-bold ${stat.color} group-hover:scale-110 transition-all duration-300 animate-counter`}>
+                    <div className="">
                       {stat.number}
                     </div>
                     <div className="text-sm text-slate-400 mt-1 group-hover:text-slate-300 transition-colors">
