@@ -97,7 +97,7 @@ const Hero = () => {
               {/* Update these numbers and labels to reflect your achievements. */}
               <div className="grid grid-cols-3 gap-8 pt-8 animate-slide-up animation-delay-800">
                 {[{
-                number: "5+",
+                number: "3+",
                 label: "Years Experience",
                 color: "text-blue-400"
               }, {
