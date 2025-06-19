@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Quote, Star, ChevronLeft, ChevronRight, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -16,7 +15,7 @@ const Testimonials = () => {
       role: "Senior Developer",
       company: "TechCorp",
       image: "https://images.unsplash.com/photo-1494790108755-2616b332837?w=80&h=80&fit=crop&crop=face",
-      quote: "Alex's automation framework reduced our testing time by 60% and significantly improved our release confidence. His attention to detail and technical expertise are exceptional.",
+      quote: "Harsha's automation framework reduced our testing time by 60% and significantly improved our release confidence. His attention to detail and technical expertise are exceptional.",
       rating: 5,
       gradient: "from-blue-500/20 to-cyan-500/20"
     },
@@ -25,7 +24,7 @@ const Testimonials = () => {
       role: "QA Manager",
       company: "DataFlow Inc",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face",
-      quote: "Working with Alex was a game-changer for our testing processes. He not only delivered robust automation solutions but also mentored our team on best practices.",
+      quote: "Working with Harsha was a game-changer for our testing processes. He not only delivered robust automation solutions but also mentored our team on best practices.",
       rating: 5,
       gradient: "from-purple-500/20 to-pink-500/20"
     },
@@ -34,7 +33,7 @@ const Testimonials = () => {
       role: "Product Manager",
       company: "InnovateLabs",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face",
-      quote: "Alex's ability to understand business requirements and translate them into comprehensive test strategies is remarkable. His work directly contributed to our product's success.",
+      quote: "Harsha's ability to understand business requirements and translate them into comprehensive test strategies is remarkable. His work directly contributed to our product's success.",
       rating: 5,
       gradient: "from-emerald-500/20 to-teal-500/20"
     }
