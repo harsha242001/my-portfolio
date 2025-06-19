@@ -1,10 +1,10 @@
-
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Phone, MapPin, Send, Download, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Download, Github, Linkedin, Instagram } from "lucide-react";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,18 +13,31 @@ const Contact = () => {
     message: ""
   });
   const { toast } = useToast();
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // --- NOTE ON FORM SUBMISSION ---
-    // This is currently a mock submission. It just shows a "Message Sent!" notification.
-    // To make this functional, you would need to integrate a backend service
-    // like EmailJS, Formspree, or your own server endpoint here.
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-    setFormData({ name: "", email: "", message: "" });
+    if (!formRef.current) return;
+    emailjs.sendForm(
+      'service_Website_Portfoli',
+      'template_khiyqqi',
+      formRef.current,
+      'JjXkwxAO67rYSzcin'
+    ).then(
+      (result) => {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for reaching out. I'll get back to you soon.",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      },
+      (error) => {
+        toast({
+          title: "Error",
+          description: "There was a problem sending your message. Please try again later.",
+        });
+      }
+    );
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -40,22 +53,22 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "alex.chen@email.com",
-      href: "mailto:alex.chen@email.com",
+      value: "nunna.harshavardhan2001@gmail.com",
+      href: "mailto:nunna.harshavardhan2001@gmail.com",
       gradient: "from-blue-500 to-cyan-500"
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+1 (555) 123-4567",
-      href: "tel:+15551234567",
+      value: "8790174522",
+      href: "tel:8790174522",
       gradient: "from-purple-500 to-pink-500"
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "San Francisco, CA",
-      href: "#", // You can link this to a Google Maps URL if you want
+      value: "Hyderabad",
+      href: "#",
       gradient: "from-emerald-500 to-teal-500"
     }
   ];
@@ -66,20 +79,20 @@ const Contact = () => {
     {
       icon: Github,
       label: "GitHub",
-      href: "#", // Replace with your GitHub URL
+      href: "https://github.com/harsha242001/",
       color: "hover:text-slate-300"
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "#", // Replace with your LinkedIn URL
+      href: "https://www.linkedin.com/in/harsha-vardhan-4bb8101b0/",
       color: "hover:text-blue-400"
     },
     {
-      icon: Twitter,
-      label: "Twitter",
-      href: "#", // Replace with your Twitter/X URL
-      color: "hover:text-cyan-400"
+      icon: Instagram,
+      label: "Instagram",
+      href: "https://www.instagram.com/harsha242001/",
+      color: "hover:text-pink-400"
     }
   ];
 
@@ -124,7 +137,7 @@ const Contact = () => {
               </span>
             </h2>
             <p className="text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
-              Ready to discuss your testing automation needs? Let's connect and explore how I can help your team achieve testing excellence.
+              Are you ready to unlock new possibilities and drive impactful solutions? Let's connect and explore
             </p>
           </div>
 
@@ -140,7 +153,7 @@ const Contact = () => {
                   Send a Message
                 </h3>
                 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-slate-300">Name</label>
@@ -241,7 +254,7 @@ const Contact = () => {
                   variant="outline"
                   size="lg"
                   className="w-full border-slate-600 text-slate-300 hover:bg-slate-700/50 hover:border-blue-400/50 backdrop-blur-sm transform hover:scale-105 transition-all duration-300"
-                  onClick={() => window.open('mailto:alex.chen@email.com')}
+                  onClick={() => window.open('mailto:nunna.harshavardhan2001@gmail.com')}
                 >
                   <Mail className="w-5 h-5 mr-2" />
                   Email Me Directly

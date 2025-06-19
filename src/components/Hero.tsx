@@ -1,7 +1,5 @@
-
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { ArrowDown, Download, Eye, Upload } from "lucide-react";
+import { ArrowDown, Download, Eye } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const Hero = () => {
@@ -9,22 +7,7 @@ const Hero = () => {
     x: 0,
     y: 0
   });
-  const [profileImage, setProfileImage] = useState("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop&crop=face");
-  const [showUpload, setShowUpload] = useState(false);
-
-  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        if (e.target?.result) {
-          setProfileImage(e.target.result as string);
-          setShowUpload(false);
-        }
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+  const [profileImage, setProfileImage] = useState("/New.png");
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -101,9 +84,9 @@ const Hero = () => {
                   <p className="text-2xl font-medium text-blue-300">Senior Software Engineer</p>
                   {/* Update your short biography or tagline here. */}
                   <p className="text-lg text-slate-300 leading-relaxed max-w-xl">
-                    Crafting robust automation frameworks that ensure flawless software delivery.
-                    <br />
-                    Transforming quality assurance through innovative testing solutions and CI/CD excellence.
+                    Led automation initiatives using Java, Selenium, and Python to create robust testing frameworks and process automation tools.<br />
+                    <span className="block h-4" />
+                    I'm passionate about leveraging AI tools like this to drive innovative solutions and continuous learning.
                   </p>
                 </div>
               </div>
@@ -120,7 +103,7 @@ const Hero = () => {
               </div>
 
               {/* --- CUSTOMIZE YOUR STATS --- */}
-              {/* Update these numbers and labels to reflect your achievements. */}
+              {/*
               <div className="grid grid-cols-3 gap-8 pt-8 animate-slide-up animation-delay-800">
                 {[{
                   number: "3+",
@@ -145,6 +128,7 @@ const Hero = () => {
                   </div>
                 ))}
               </div>
+              */}
             </div>
 
             {/* Right Side - Photo */}
@@ -166,30 +150,8 @@ const Hero = () => {
                     {/* Overlay Gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
                     
-                    {/* Upload Button */}
-                    <div className="absolute top-4 left-4">
-                      <Button
-                        size="sm"
-                        onClick={() => setShowUpload(!showUpload)}
-                        className="bg-black/40 hover:bg-black/60 backdrop-blur-sm text-white border-0 rounded-full p-2 h-10 w-10"
-                      >
-                        <Upload className="w-4 h-4" />
-                      </Button>
-                      
-                      {showUpload && (
-                        <div className="absolute top-12 left-0 bg-black/80 backdrop-blur-sm rounded-lg p-3 min-w-[200px]">
-                          <p className="text-xs text-white mb-2">Upload your photo</p>
-                          <Input
-                            type="file"
-                            accept="image/*"
-                            onChange={handleImageUpload}
-                            className="text-xs text-white file:text-white file:bg-blue-600 file:border-0 file:rounded file:px-2 file:py-1"
-                          />
-                        </div>
-                      )}
-                    </div>
-                    
                     {/* Skills/Technologies */}
+                    {/*
                     <div className="absolute top-4 right-4 flex flex-col space-y-2">
                       {['Java', 'Selenium', 'CI/CD'].map((tech, i) => (
                         <div key={tech} className="px-3 py-1 bg-black/40 backdrop-blur-sm rounded-full text-xs text-white font-medium animate-bounce-in" style={{
@@ -199,6 +161,7 @@ const Hero = () => {
                         </div>
                       ))}
                     </div>
+                    */}
                   </div>
                 </div>
               </div>

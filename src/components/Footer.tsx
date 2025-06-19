@@ -1,4 +1,3 @@
-
 const Footer = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -12,10 +11,9 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="text-2xl font-bold text-blue-400 mb-4">Alex Chen</h3>
+            <h3 className="text-2xl font-bold text-blue-400 mb-4">Harsha Vardhan</h3>
             <p className="text-slate-300 text-sm">
-              Automation Test Engineer passionate about building robust testing solutions 
-              that help teams deliver quality software faster.
+              I'm passionate about leveraging AI tools like this to drive innovative solutions and continuous learning.
             </p>
           </div>
           
@@ -52,14 +50,14 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-semibold mb-4">Connect</h4>
             <div className="flex space-x-4">
-              <a href="#" className="text-slate-300 hover:text-blue-400 transition-colors">
+              <a href="https://github.com/harsha242001/" className="text-slate-300 hover:text-blue-400 transition-colors" target="_blank" rel="noopener noreferrer">
                 GitHub
               </a>
-              <a href="#" className="text-slate-300 hover:text-blue-400 transition-colors">
+              <a href="https://www.linkedin.com/in/harsha-vardhan-4bb8101b0/" className="text-slate-300 hover:text-blue-400 transition-colors" target="_blank" rel="noopener noreferrer">
                 LinkedIn
               </a>
-              <a href="#" className="text-slate-300 hover:text-blue-400 transition-colors">
-                Twitter
+              <a href="https://www.instagram.com/harsha242001/" className="text-slate-300 hover:text-pink-400 transition-colors" target="_blank" rel="noopener noreferrer">
+                Instagram
               </a>
             </div>
           </div>
@@ -67,7 +65,7 @@ const Footer = () => {
         
         <div className="border-t border-slate-800 pt-8 text-center">
           <p className="text-slate-400 text-sm">
-            © {new Date().getFullYear()} Alex Chen. All rights reserved.
+            © {new Date().getFullYear()} Harsha Vardhan. All rights reserved.
           </p>
         </div>
       </div>
