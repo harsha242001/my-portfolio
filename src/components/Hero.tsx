@@ -1,11 +1,30 @@
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Download, Eye } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { ArrowDown, Download, Eye, Upload } from "lucide-react";
 import { useEffect, useState } from "react";
+
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({
     x: 0,
     y: 0
   });
+  const [profileImage, setProfileImage] = useState("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop&crop=face");
+  const [showUpload, setShowUpload] = useState(false);
+
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        if (e.target?.result) {
+          setProfileImage(e.target.result as string);
+          setShowUpload(false);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({
@@ -16,6 +35,7 @@ const Hero = () => {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -24,6 +44,7 @@ const Hero = () => {
       });
     }
   };
+
   return <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
         {/* Background Grid */}
@@ -128,16 +149,39 @@ const Hero = () => {
                 {/* Photo Container */}
                 <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 p-2 rounded-3xl border border-slate-700 group-hover:border-slate-600 transition-all duration-500">
                   <div className="relative overflow-hidden rounded-2xl">
-                    {/* --- CUSTOMIZE YOUR PHOTO --- */}
-                    {/* Replace this URL with a link to your own photo.
-                        A good size is 500x600 pixels. You can upload an image to this project. */}
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop&crop=face" alt="Alex Chen - Test Automation Engineer" className="w-80 h-96 object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                    {/* Profile Image */}
+                    <img 
+                      src={profileImage} 
+                      alt="Harsha Vardhan Nunna - Test Automation Engineer" 
+                      className="w-80 h-96 object-cover transform group-hover:scale-105 transition-transform duration-700" 
+                    />
                     
                     {/* Overlay Gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
                     
-                    {/* --- CUSTOMIZE YOUR SKILLS/TECHNOLOGIES --- */}
-                    {/* Change these to highlight your key skills. */}
+                    {/* Upload Button */}
+                    <div className="absolute top-4 left-4">
+                      <Button
+                        size="sm"
+                        onClick={() => setShowUpload(!showUpload)}
+                        className="bg-black/40 hover:bg-black/60 backdrop-blur-sm text-white border-0 rounded-full p-2 h-10 w-10"
+                      >
+                        <Upload className="w-4 h-4" />
+                      </Button>
+                      
+                      {showUpload && (
+                        <div className="absolute top-12 left-0 bg-black/80 backdrop-blur-sm rounded-lg p-3 min-w-[200px]">
+                          <p className="text-xs text-white mb-2">Upload your photo</p>
+                          <Input
+                            type="file"
+                            accept="image/*"
+                            onChange={handleImageUpload}
+                            className="text-xs text-white file:text-white file:bg-blue-600 file:border-0 file:rounded file:px-2 file:py-1"
+                          />
+                        </div>
+                      )}
+                    
+                    {/* Skills/Technologies */}
                     <div className="absolute top-4 right-4 flex flex-col space-y-2">
                       {['Java', 'Selenium', 'CI/CD'].map((tech, i) => <div key={tech} className="px-3 py-1 bg-black/40 backdrop-blur-sm rounded-full text-xs text-white font-medium animate-bounce-in" style={{
                       animationDelay: `${1000 + i * 200}ms`
@@ -162,4 +206,5 @@ const Hero = () => {
       </div>
     </section>;
 };
+
 export default Hero;
