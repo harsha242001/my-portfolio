@@ -7,7 +7,7 @@ const Hero = () => {
     x: 0,
     y: 0
   });
-  const [profileImage, setProfileImage] = useState("/New.png");
+  const [profileImage, setProfileImage] = useState("/harsha-profile.jpg");
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
