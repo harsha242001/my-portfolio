@@ -15,8 +15,7 @@ I am also actively exploring AI-assisted development and no-code automation plat
 - Portfolio & Product Prototypes
 
 ## 🚀 Live Website
-👉 https://www.medglobalaccess.in  
-(or update once this portfolio is deployed)
+👉 https://my-portfolio-phi-six-vypx02yiit.vercel.app/
 
 ## 🛠 Tech Stack
 - Languages: Java, Python
