@@ -34,7 +34,7 @@ const Hero = () => {
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
         {/* Background Grid */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] opacity-10" />
-        
+
         {/* Floating Orbs */}
         {[...Array(15)].map((_, i) => (
           <div key={`orb-${i}`} className="absolute rounded-full blur-md animate-float opacity-10" style={{
@@ -53,16 +53,16 @@ const Hero = () => {
           transform: `translate(${mousePosition.x - 400}px, ${mousePosition.y - 400}px)`,
           background: 'radial-gradient(circle, #3b82f6 0%, #8b5cf6 50%, transparent 70%)'
         }} />
-        
+
         {/* Morphing Shapes */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-morph" />
         <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-3xl animate-morph-reverse" />
       </div>
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            
+
             {/* Left Side - Text Content */}
             <div className="space-y-8 animate-hero-entrance">
               <div className="space-y-6">
@@ -82,11 +82,12 @@ const Hero = () => {
                   {/* --- CUSTOMIZE YOUR ROLE & BIO --- */}
                   {/* Update your professional title here. */}
                   <p className="text-2xl font-medium text-blue-300">Senior Software Engineer</p>
+                  <p className="text-lg font-medium text-slate-200">
+                    Automation • AI-Assisted Development • Intelligent Workflows • Scalable Engineering
+                  </p>
                   {/* Update your short biography or tagline here. */}
                   <p className="text-lg text-slate-300 leading-relaxed max-w-xl">
-                    Led automation initiatives using Java, Selenium, and Python to create robust testing frameworks and process automation tools.<br />
-                    <span className="block h-4" />
-                    I'm passionate about leveraging AI tools like this to drive innovative solutions and continuous learning.
+                    Bridging traditional software engineering with modern AI and no-code platforms.
                   </p>
                 </div>
               </div>
@@ -136,20 +137,20 @@ const Hero = () => {
               <div className="relative group">
                 {/* Glow Effect */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 rounded-3xl blur opacity-25 group-hover:opacity-40 transition-opacity duration-500 animate-pulse"></div>
-                
+
                 {/* Photo Container */}
                 <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 p-2 rounded-3xl border border-slate-700 group-hover:border-slate-600 transition-all duration-500">
                   <div className="relative overflow-hidden rounded-2xl">
                     {/* Profile Image */}
-                    <img 
-                      src={profileImage} 
-                      alt="Harsha Vardhan Nunna - Test Automation Engineer" 
-                      className="w-80 h-96 object-cover transform group-hover:scale-105 transition-transform duration-700" 
+                    <img
+                      src={profileImage}
+                      alt="Harsha Vardhan Nunna - Test Automation Engineer"
+                      className="w-80 h-96 object-cover transform group-hover:scale-105 transition-transform duration-700"
                     />
-                    
+
                     {/* Overlay Gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
-                    
+
                     {/* Skills/Technologies */}
                     {/*
                     <div className="absolute top-4 right-4 flex flex-col space-y-2">
